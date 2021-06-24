@@ -1,4 +1,4 @@
-package com.projeto.pessoasApiRestFull;
+package com.projeto.pessoasApiRest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

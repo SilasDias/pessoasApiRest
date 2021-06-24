@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/pessoasApiRestFull.iml" filepath="$PROJECT_DIR$/pessoasApiRestFull.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pessoasApiRest.iml" filepath="$PROJECT_DIR$/pessoasApiRest.iml" />
     </modules>
   </component>
 </project>
