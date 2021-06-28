@@ -8,6 +8,8 @@ public class PessoasApiRestFullApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PessoasApiRestFullApplication.class, args);
+//		http://localhost:8080/api/v1/people
+//		http://localhost:8080/h2-console
 	}
 
 }

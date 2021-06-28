@@ -26,12 +26,12 @@ public class Person {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false, unique = true) // Unique true vai permitir cadastrar cpfs unicoss
+    @Column(nullable = false, unique = true) // Unique true vai permitir cadastrar cpfs unicos
     private String cpf;
 
     private LocalDate birthDate;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}) // fetch esta relacionado a performece lazy deixa ocioso
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}) // Cascade forma de inserçao dos dados
     @Column(nullable = false)
     private List<Phone> phones;
 }
