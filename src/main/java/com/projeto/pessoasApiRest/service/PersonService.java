@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service // Gerenciar a classe resposavel pela regras de negocio
@@ -43,10 +42,9 @@ public class PersonService {
     }
 
     public PersonDTO findById(Long id) throws PersonNotFoundException {
-        Optional<Person> optionalPerson = personRepository.findById(id); //Optional evita verificaçoes Nulas
-        if(optionalPerson.isEmpty()){
-            throw new PersonNotFoundException(id);
-        }
-        return personMapper.toDTO(optionalPerson.get());
+       Person person = personRepository.findById(id)
+               .orElseThrow(() -> new PersonNotFoundException(id)); // Caso nao ache a pessoa e lancado uma excessao
+//        Optional<Person> optionalPerson = personRepository.findById(id); //Optional evita verificaçoes Nulas
+        return personMapper.toDTO(person);
     }
 }
