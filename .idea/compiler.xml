@@ -16,7 +16,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="pessoasApiRest" target="1.8" />
+      <module name="pessoasApiRest" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

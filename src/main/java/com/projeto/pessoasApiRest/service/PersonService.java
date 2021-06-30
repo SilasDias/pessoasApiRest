@@ -3,12 +3,14 @@ package com.projeto.pessoasApiRest.service;
 import com.projeto.pessoasApiRest.dto.request.PersonDTO;
 import com.projeto.pessoasApiRest.dto.response.MessageResponseDTO;
 import com.projeto.pessoasApiRest.entity.Person;
+import com.projeto.pessoasApiRest.exception.PersonNotFoundException;
 import com.projeto.pessoasApiRest.mapper.PersonMapper;
 import com.projeto.pessoasApiRest.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service // Gerenciar a classe resposavel pela regras de negocio
@@ -38,5 +40,13 @@ public class PersonService {
         return allPeople.stream()
                 .map(personMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    public PersonDTO findById(Long id) throws PersonNotFoundException {
+        Optional<Person> optionalPerson = personRepository.findById(id); //Optional evita verificaçoes Nulas
+        if(optionalPerson.isEmpty()){
+            throw new PersonNotFoundException(id);
+        }
+        return personMapper.toDTO(optionalPerson.get());
     }
 }

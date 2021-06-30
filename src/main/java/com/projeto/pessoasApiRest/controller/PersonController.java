@@ -2,6 +2,7 @@ package com.projeto.pessoasApiRest.controller;
 
 import com.projeto.pessoasApiRest.dto.request.PersonDTO;
 import com.projeto.pessoasApiRest.dto.response.MessageResponseDTO;
+import com.projeto.pessoasApiRest.exception.PersonNotFoundException;
 import com.projeto.pessoasApiRest.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,5 +31,11 @@ public class PersonController {
     @GetMapping
     public List<PersonDTO> listAll(){
         return personService.listAll();
+    }
+
+    @GetMapping("/{id}")
+    public PersonDTO findById(@PathVariable Long id) throws PersonNotFoundException { //PathVariable para passar o id pelo http
+        return personService.findById(id);
+
     }
 }
